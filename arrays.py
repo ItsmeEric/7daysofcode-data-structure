@@ -17,8 +17,6 @@
 '''
 
 class shopping_list():
-	def _init_(self):
+	def __init__(self):
 		self.items = []
 		self.quantity = []
-
-print("Test passed")
