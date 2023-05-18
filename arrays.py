@@ -39,3 +39,8 @@ class Shopping_list():
 			print(f"{self.items[i]}: {self.quantities[i]}")
 		
 shopping_list = Shopping_list()
+
+shopping_list.add_item('Bread', 1)
+shopping_list.add_item('Banana', 5)
+shopping_list.add_item('Cookies', 2)
+shopping_list.add_item('Melon', 1)
