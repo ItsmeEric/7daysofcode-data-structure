@@ -16,18 +16,26 @@
 	b. If the product quantity is an number greater than 0
 '''
 
-class shopping_list():
+class Shopping_list():
 	def __init__(self):
 		self.items = []
-		self.quantity = []
+		self.quantities = []
 
 	# Adding new item into the shopping list
 	def add_item(self, item, quantity):
 		self.items.append(item)
-		self.quantity.append(quantity)
+		self.quantities.append(quantity)
 
 	# Removing item from the shopping list
 	def remove_item(self, item):
 		item_index = self.items.index(item)
 		self.items.pop(item_index)
-		self.quantity.pop(item_index)
+		self.quantities.pop(item_index)
+
+	# Listing all items in the basket
+	def list_items(self):
+		print("Shopping list")
+		for i in range(len(self.items)):
+			print(f"{self.items[i]}: {self.quantities[i]}")
+		
+shopping_list = Shopping_list()
