@@ -48,12 +48,25 @@ class PatientList:
     def __init__(self):
         self.head = None
     
+
+    def find_patient(self, id):
+        actual_patient = self.head
+        while actual_patient is not None:
+            if actual_patient.id == id:
+                return actual_patient
+            actual_patient = actual_patient.next_patient
+        return None
+
     def add_patient(self, id, name, health_status):
         new_patient = Patient(id, name, health_status)
         if self.head is None:
             # If the list is empty, new_patient is added as the list head
             self.head = new_patient
         else:
+            # Check if a patient with the same ID already exists
+            if self.find_patient(id):
+                print("Patient with the same ID already exists.")
+                return
             # Otherwise, he is added to the end of the list
             actual_patient = self.head
             while actual_patient.next_patient is not None:
@@ -74,7 +87,7 @@ class PatientList:
             actual_patient = self.head
             while actual_patient.next_patient is not None:
                 if actual_patient.next_patient.id == id:
-                    # If found, update the the previous patient pointer to the next_patient
+                    # If found, update the previous patient's next_patient pointer
                     actual_patient.next_patient = actual_patient.next_patient.next_patient
                     return
                 actual_patient = actual_patient.next_patient
