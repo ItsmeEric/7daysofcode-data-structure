@@ -36,9 +36,9 @@ Implement a patient management system in a hospital using simply linked list
 '''
 
 # Defining the Patient class to represent the list node
-# class Patient:
-#     def __init__(self, id, name, health_status):
-#         self.id = id
-#         self.name = name
-#         self.health_status = health_status
-#         self.next_patient = None
+class Patient:
+    def __init__(self, id, name, health_status):
+        self.id = id
+        self.name = name
+        self.health_status = health_status
+        self.next_patient = None
