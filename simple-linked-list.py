@@ -78,3 +78,14 @@ class PatientList:
                     actual_patient.next_patient = actual_patient.next_patient.next_patient
                     return
                 actual_patient = actual_patient.next_patient
+        
+    # Method to print all patients in the list
+    def list_patients(self):
+        if self.head is None:
+            print("There is no patients in this list!!")
+        else:
+            actual_patient = self.head
+            while actual_patient is not None:
+                print(f"Name: {actual_patient.name}, ID: {actual_patient.id}, Health status: {actual_patient.health_status}")
+                actual_patient = actual_patient.next_patient
+    
