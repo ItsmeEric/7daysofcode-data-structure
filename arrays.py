@@ -50,6 +50,7 @@ class ShoppingList():
 			return True
 		print("Invalid product name format")
 		return False
+	
 	# Validate product quantity
 	def _validate_quantity(self, quantity):
 		if isinstance(quantity, int) and quantity > 0:
