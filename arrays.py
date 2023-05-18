@@ -20,3 +20,6 @@ class shopping_list():
 	def __init__(self):
 		self.items = []
 		self.quantity = []
+
+	# Adding new item into the shopping list
+	def add_item()
