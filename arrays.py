@@ -22,4 +22,12 @@ class shopping_list():
 		self.quantity = []
 
 	# Adding new item into the shopping list
-	def add_item()
+	def add_item(self, item, quantity):
+		self.items.append(item)
+		self.quantity.append(quantity)
+
+	# Removing item from the shopping list
+	def remove_item(self, item):
+		item_index = self.items.index(item)
+		self.items.pop(item_index)
+		self.quantity.pop(item_index)
