@@ -58,7 +58,7 @@ class PatientList:
             actual_patient = self.head
             while actual_patient.next_patient is not None:
                 actual_patient = actual_patient.next_patient
-                actual_patient.next_patient = new_patient
+            actual_patient.next_patient = new_patient
             
     # Remove patient from the list, receives the id to remove as a parameter
     def remove_patient(self, id):
@@ -88,4 +88,17 @@ class PatientList:
             while actual_patient is not None:
                 print(f"Name: {actual_patient.name}, ID: {actual_patient.id}, Health status: {actual_patient.health_status}")
                 actual_patient = actual_patient.next_patient
-    
+
+
+patients_list = PatientList()
+
+patients_list.add_patient(1, "Giovanna", "Stable")
+patients_list.add_patient(2, "Angela", "Intensive care")
+patients_list.add_patient(3, "Marietta", "Critical")
+patients_list.add_patient(4, "Eric", "Stable")
+
+patients_list.list_patients()
+
+patients_list.remove_patient(1)
+
+patients_list.list_patients()
