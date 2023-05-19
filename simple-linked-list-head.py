@@ -31,7 +31,7 @@ Implement a patient management system in a hospital using simply linked list
     
     ### Test the code ###
 
-    # EXTRA - Our case#
+    # EXTRA - Our case #
         a. Try using only the "head" property without the "tail" property 
 '''
 
