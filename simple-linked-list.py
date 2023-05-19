@@ -59,19 +59,21 @@ class PatientList:
             # Otherwise, he is added to the end of the list
             current_patient = self.head
             while current_patient.next_patient is not None:
-                if current_patient.id == patient_id;
+                if current_patient.id == patient_id:
                     raise ValueError("Patient with the same ID already exists.")
                 current_patient = current_patient.next_patient
-            if current_patient.id == patient_id
+            if current_patient.id == patient_id:
                 raise ValueError("Patient with the same ID already exists.")
             current_patient.next_patient = new_patient
             
     # Remove patient from the list, receives the id to remove as a parameter
-    def remove_patient(self, id):
+    def remove_patient(self, patient_id):
         if self.head is None:
             # If the list is empty, cancel the operation
+            print("There are no patients in this list")
             return
-        elif self.head.id == id:
+        
+        elif self.head.id == patient_id:
             # If the patient to remove is the head, move the pointer to the next patient
             self.head = self.head.next_patient
             return
@@ -79,9 +81,11 @@ class PatientList:
             # Otherwise, iterate over the list until we find the id we're looking for
             current_patient = self.head
             while current_patient.next_patient is not None:
-                if current_patient.next_patient.id == id:
+                if current_patient.next_patient.id == patient_id:
                     # If found, update the previous patient's next_patient pointer
-                    current_patient.next_patient = current_patient.next_patient.next_patient
+                    removed_patient = current_patient.next_patient
+                    current_patient.next_patient = removed_patient.next_patient
+                    removed_patient.next_patient = None # Detach the removed patient
                     return
                 current_patient = current_patient.next_patient
             # Patient with the given ID was not found in the list
@@ -96,7 +100,6 @@ class PatientList:
             while current_patient is not None:
                 print(f"Name: {current_patient.name}, ID: {current_patient.id}, Health status: {current_patient.health_status}")
                 current_patient = current_patient.next_patient
-
 
 patients_list = PatientList()
 
