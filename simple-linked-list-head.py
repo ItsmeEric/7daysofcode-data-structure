@@ -31,7 +31,7 @@ Implement a patient management system in a hospital using simply linked list
     
     ### Test the code ###
 
-    # EXTRA
+    # EXTRA - Our case#
         a. Try using only the "head" property without the "tail" property 
 '''
 
@@ -100,6 +100,7 @@ class PatientList:
             while current_patient is not None:
                 print(f"Name: {current_patient.name}, ID: {current_patient.id}, Health status: {current_patient.health_status}")
                 current_patient = current_patient.next_patient
+
 
 patients_list = PatientList()
 
