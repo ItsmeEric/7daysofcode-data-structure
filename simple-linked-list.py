@@ -37,8 +37,8 @@ Implement a patient management system in a hospital using simply linked list
 
 # Defining the Patient class to represent the list node
 class Patient:
-    def __init__(self, id, name, health_status):
-        self.id = id
+    def __init__(self, patient_id, name, health_status):
+        self.id = patient_id
         self.name = name
         self.health_status = health_status
         self.next_patient = None
@@ -49,29 +49,22 @@ class PatientList:
         self.head = None
     
 
-    def find_patient(self, id):
-        actual_patient = self.head
-        while actual_patient is not None:
-            if actual_patient.id == id:
-                return actual_patient
-            actual_patient = actual_patient.next_patient
-        return None
+    def add_patient(self, patient_id, name, health_status):
+        new_patient = Patient(patient_id, name, health_status)
 
-    def add_patient(self, id, name, health_status):
-        new_patient = Patient(id, name, health_status)
         if self.head is None:
             # If the list is empty, new_patient is added as the list head
             self.head = new_patient
         else:
-            # Check if a patient with the same ID already exists
-            if self.find_patient(id):
-                print("Patient with the same ID already exists.")
-                return
             # Otherwise, he is added to the end of the list
-            actual_patient = self.head
-            while actual_patient.next_patient is not None:
-                actual_patient = actual_patient.next_patient
-            actual_patient.next_patient = new_patient
+            current_patient = self.head
+            while current_patient.next_patient is not None:
+                if current_patient.id == patient_id;
+                    raise ValueError("Patient with the same ID already exists.")
+                current_patient = current_patient.next_patient
+            if current_patient.id == patient_id
+                raise ValueError("Patient with the same ID already exists.")
+            current_patient.next_patient = new_patient
             
     # Remove patient from the list, receives the id to remove as a parameter
     def remove_patient(self, id):
@@ -84,23 +77,25 @@ class PatientList:
             return
         else:
             # Otherwise, iterate over the list until we find the id we're looking for
-            actual_patient = self.head
-            while actual_patient.next_patient is not None:
-                if actual_patient.next_patient.id == id:
+            current_patient = self.head
+            while current_patient.next_patient is not None:
+                if current_patient.next_patient.id == id:
                     # If found, update the previous patient's next_patient pointer
-                    actual_patient.next_patient = actual_patient.next_patient.next_patient
+                    current_patient.next_patient = current_patient.next_patient.next_patient
                     return
-                actual_patient = actual_patient.next_patient
-        
+                current_patient = current_patient.next_patient
+            # Patient with the given ID was not found in the list
+            print("Patient not found")
+
     # Method to print all patients in the list
     def list_patients(self):
         if self.head is None:
             print("There is no patients in this list!!")
         else:
-            actual_patient = self.head
-            while actual_patient is not None:
-                print(f"Name: {actual_patient.name}, ID: {actual_patient.id}, Health status: {actual_patient.health_status}")
-                actual_patient = actual_patient.next_patient
+            current_patient = self.head
+            while current_patient is not None:
+                print(f"Name: {current_patient.name}, ID: {current_patient.id}, Health status: {current_patient.health_status}")
+                current_patient = current_patient.next_patient
 
 
 patients_list = PatientList()
